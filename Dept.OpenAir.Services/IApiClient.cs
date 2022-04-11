@@ -1,6 +1,7 @@
-﻿using Dept.OpenAir.Api.Models;
+﻿using Dept.OpenAir.Services.Models.Cities;
+using Dept.OpenAir.Services.Models.Measurements;
 
-namespace Dept.OpenAir.Api
+namespace Dept.OpenAir.Services
 {
     public interface IApiClient
     {

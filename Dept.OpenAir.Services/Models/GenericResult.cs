@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dept.OpenAir.Api.Models
+namespace Dept.OpenAir.Services.Models
 {
     public class GenericResult<T>
     {

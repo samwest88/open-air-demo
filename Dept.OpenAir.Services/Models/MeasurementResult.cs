@@ -1,11 +1,11 @@
-﻿using Dept.OpenAir.Api.Models.Measurements;
+﻿using Dept.OpenAir.Services.Models.Measurements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dept.OpenAir.Api.Models
+namespace Dept.OpenAir.Services.Models
 {
     public class MeasurementResult
     {

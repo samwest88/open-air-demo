@@ -1,17 +1,18 @@
-﻿using Dept.OpenAir.Api.Models;
+﻿using Dept.OpenAir.Services.Models.Cities;
+using Dept.OpenAir.Services.Models.Measurements;
 using Dept.OpenAir.Web.Business.Constants;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 
-namespace Dept.OpenAir.Api
+namespace Dept.OpenAir.Services
 {
     /// <summary>
     /// Supports the following as per requirements: 
     /// 1. Retrieval of data for a city including sorting via a given field 
     /// 2. Appropriate logging
     /// 3. Injection
-    /// 4. TODO: Basic memory cache to fulfil the requirement of "storing" requests for future use
+    /// TODO: Basic memory cache to fulfil the requirement of "storing" requests for future use
     ///     :https://docs.microsoft.com/en-us/aspnet/core/performance/caching/memory?view=aspnetcore-6.0
     /// </summary>
     public class ApiClient : IApiClient
@@ -35,6 +36,7 @@ namespace Dept.OpenAir.Api
         public async Task<GetMeasurementsResult> GetMeasurements(string city)
         {
             var endpoint = "measurements";
+            //TODO: Add these as parameter filters instead of hardcoded
             var query = $"date_from=2000-01-01T00%3A00%3A00%2B00%3A00&date_to=2022-04-11T13%3A43%3A00%2B00%3A00&limit=100&page=1&offset=0&sort=desc&radius=1000&city={city}&order_by=datetime";
             return await Get<GetMeasurementsResult>(endpoint, query);
         }
@@ -42,6 +44,7 @@ namespace Dept.OpenAir.Api
         public async Task<GetCitiesResult> GetCities()
         {
             var endpoint = "cities";
+            //TODO: Add these as parameter filters instead of hardcoded
             var query = "limit=100&page=1&offset=0&sort=asc&order_by=city";
             return await Get<GetCitiesResult>(endpoint, query);
         }

@@ -1,4 +1,4 @@
-﻿namespace Dept.OpenAir.Api.Models
+﻿namespace Dept.OpenAir.Services.Models
 {
     public class Meta
     {

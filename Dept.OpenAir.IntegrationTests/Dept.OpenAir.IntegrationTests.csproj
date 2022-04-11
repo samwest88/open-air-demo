@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Dept.OpenAir.Api\Dept.OpenAir.Api.csproj" />
+    <ProjectReference Include="..\Dept.OpenAir.Services\Dept.OpenAir.Services.csproj" />
     <ProjectReference Include="..\Dept.OpenAir.Web\Dept.OpenAir.Web.csproj" />
   </ItemGroup>
 

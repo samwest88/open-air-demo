@@ -1,4 +1,4 @@
-﻿namespace Dept.OpenAir.Api.Models.Measurements
+﻿namespace Dept.OpenAir.Services.Models.Measurements
 {
     public class Coordinates
     {

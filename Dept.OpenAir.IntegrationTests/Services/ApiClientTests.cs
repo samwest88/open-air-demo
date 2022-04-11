@@ -1,6 +1,7 @@
-using Dept.OpenAir.Api;
+using Dept.OpenAir.Services;
 using Dept.OpenAir.Web.Business.Constants;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Linq;
@@ -8,6 +9,11 @@ using System.Threading.Tasks;
 
 namespace Dept.OpenAir.IntegrationTests
 {
+    /// <summary>
+    /// Integration tests for our Api Client
+    /// TODO: These just test the happy-path at the moment - some ones where we can get API errors to occur would be good
+    /// TODO: Add unit testing into seperate project so we don't have to hit actual endpoints to test logging etc. 
+    /// </summary>
     [TestClass]
     public class ApiClientTests
     {
@@ -17,7 +23,7 @@ namespace Dept.OpenAir.IntegrationTests
             //Arrange
             var config = new Mock<IConfiguration>(MockBehavior.Strict);
             config.Setup(x => x.GetSection(ConfigurationConstants.ApiPrefix).Value).Returns("https://docs.openaq.org/v2");
-            var client = new ApiClient(config.Object, null);
+            var client = new ApiClient(config.Object, new Mock<ILogger<ApiClient>>().Object);
             
             //Act
             var result = await client.GetCities();
@@ -36,7 +42,7 @@ namespace Dept.OpenAir.IntegrationTests
             //Arrange
             var config = new Mock<IConfiguration>(MockBehavior.Strict);
             config.Setup(x => x.GetSection(ConfigurationConstants.ApiPrefix).Value).Returns("https://docs.openaq.org/v2");
-            var client = new ApiClient(config.Object, null);
+            var client = new ApiClient(config.Object, new Mock<ILogger<ApiClient>>().Object);
             var city = "Southampton";
 
             //Act

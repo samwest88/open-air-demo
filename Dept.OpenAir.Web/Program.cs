@@ -1,5 +1,5 @@
 using AutoMapper;
-using Dept.OpenAir.Api;
+using Dept.OpenAir.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
