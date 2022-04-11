@@ -6,7 +6,7 @@
 <div class="text-center">
     <h1 class="display-4">Example application for finding out about air pollution in a particular city</h1>
 
-    <p>Please type in the name of a city below and hit enter to find out details of air pollution in that city:</p>
+    <p>Please type in the name of a city (case sensitive!) below and hit enter to find out details of air pollution in that city:</p>
 
     <!--TODO: Can add filter dropdowns into the form for better control of results (ordering / dates / country / limit number of results per page etc) -->
     <form asp-controller="Home" asp-action="Index" method="post">
@@ -17,7 +17,7 @@
 
     <hr />
 
-    <!-- TODO: Was going to allow the user to select a city, but this would have to be an autocomplete -->
+    <!-- TODO: Was going to allow the user to select a city from input, but this would have to be an autocomplete -->
     @if (Model.Cities.Any())
     {
         <select name="products" class="form-control" asp-items="@Model.Cities"></select>
@@ -28,5 +28,11 @@
     @foreach(var card in Model.Cards)
     {
         @await Html.PartialAsync("_MeasurementCard", card)
+    }
+
+    <!--Error handling-->
+    @if (!Model.Cards.Any() && !string.IsNullOrWhiteSpace(Model.City))
+    {
+        <p>Looks like we couldn't find any results for <strong>@Model.City</strong>. Try 'London' or 'Southampton' for example.</p>
     }
 </div>
