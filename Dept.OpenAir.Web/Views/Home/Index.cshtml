@@ -4,8 +4,29 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Example application for finding out about air pollution in a particular city</h1>
 
-    <select name="products" class="form-control" asp-items="@Model.Cities"></select>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Please type in the name of a city below and hit enter to find out details of air pollution in that city:</p>
+
+    <!--TODO: Can add filter dropdowns into the form for better control of results (ordering / dates / country / limit number of results per page etc) -->
+    <form asp-controller="Home" asp-action="Index" method="post">
+        <label asp-for="City"></label>
+        <input asp-for="City"/>
+        <input type="submit" />
+    </form>
+
+    <hr />
+
+    <!-- TODO: Was going to allow the user to select a city, but this would have to be an autocomplete -->
+    @if (Model.Cities.Any())
+    {
+        <select name="products" class="form-control" asp-items="@Model.Cities"></select>
+    }
+
+    <!-- Render all our cards -->
+    <!-- TODO: Add some paging -->
+    @foreach(var card in Model.Cards)
+    {
+        @await Html.PartialAsync("_MeasurementCard", card)
+    }
 </div>

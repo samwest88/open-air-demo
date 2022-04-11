@@ -1,3 +1,4 @@
+using AutoMapper;
 using Dept.OpenAir.Api;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,8 @@ builder.Services.AddControllersWithViews();
 
 //TODO: Check most appropriate lifetime for this
 builder.Services.AddScoped<IApiClient, ApiClient>();
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 

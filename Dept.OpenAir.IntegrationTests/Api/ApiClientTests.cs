@@ -17,7 +17,7 @@ namespace Dept.OpenAir.IntegrationTests
             //Arrange
             var config = new Mock<IConfiguration>(MockBehavior.Strict);
             config.Setup(x => x.GetSection(ConfigurationConstants.ApiPrefix).Value).Returns("https://docs.openaq.org/v2");
-            var client = new ApiClient(config.Object);
+            var client = new ApiClient(config.Object, null);
             
             //Act
             var result = await client.GetCities();
@@ -28,6 +28,23 @@ namespace Dept.OpenAir.IntegrationTests
 
             //Assert : Check our deserialization of a nested property
             Assert.IsFalse(string.IsNullOrWhiteSpace(result.Results?.First().Country));
+        }
+
+        [TestMethod]
+        public async Task GetMeasurements_Success()
+        {
+            //Arrange
+            var config = new Mock<IConfiguration>(MockBehavior.Strict);
+            config.Setup(x => x.GetSection(ConfigurationConstants.ApiPrefix).Value).Returns("https://docs.openaq.org/v2");
+            var client = new ApiClient(config.Object, null);
+            var city = "Southampton";
+
+            //Act
+            var result = await client.GetMeasurements(city);
+
+            //Assert : Check we have some results & that they contain our requested city
+            Assert.IsNotNull(result);
+            Assert.AreEqual(city, result.Results?.First().City);
         }
     }
 }

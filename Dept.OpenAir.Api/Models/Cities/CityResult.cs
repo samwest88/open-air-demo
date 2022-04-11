@@ -1,6 +1,6 @@
 ﻿namespace Dept.OpenAir.Api.Models
 {
-    public class Result
+    public class CityResult
     {
         public string Country { get; set; } = string.Empty;
         public string City { get; set; } = string.Empty;

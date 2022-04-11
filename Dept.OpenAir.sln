@@ -7,9 +7,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dept.OpenAir.Api", "Dept.Op
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dept.OpenAir.IntegrationTests", "Dept.OpenAir.IntegrationTests\Dept.OpenAir.IntegrationTests.csproj", "{02AA8714-A4F7-4EC6-BCC5-7C1BA1A3CD2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dept.OpenAir.Web", "Dept.OpenAir.Web\Dept.OpenAir.Web.csproj", "{C4315701-0CCC-4440-9DFA-42D939F32A6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dept.OpenAir.Web", "Dept.OpenAir.Web\Dept.OpenAir.Web.csproj", "{C4315701-0CCC-4440-9DFA-42D939F32A6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dept.OpenAir.Common", "Dept.OpenAir.Common\Dept.OpenAir.Common.csproj", "{522AE403-9AC1-4992-A9CA-6ADD8FE8A1D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dept.OpenAir.Common", "Dept.OpenAir.Common\Dept.OpenAir.Common.csproj", "{522AE403-9AC1-4992-A9CA-6ADD8FE8A1D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{92E6D73C-0F38-41F1-A2E7-350B7795D269}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
